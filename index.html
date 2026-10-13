@@ -65,129 +65,143 @@ ul.l{padding-left:18px;color:var(--mut)}
 footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--mut);font-size:13px}
 footer .lg{width:30px;height:48px;margin:0 auto 10px}
 .th{background:none;border:1px solid var(--line);color:var(--mut);padding:4px 10px;cursor:pointer;font:inherit;font-size:12px}
+.tw{overflow-x:auto;margin:0 0 12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--card);color:var(--acc);text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:var(--fg)}tbody tr:nth-child(even) td{background:var(--card)}
+code{color:var(--acc)}
+.dev{position:relative;background:var(--card);border:1px solid var(--line);padding:18px;margin:16px 0;box-shadow:inset 0 0 0 1px var(--bg)}
+.dev:before,.dev:after{content:"";position:absolute;top:8px;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--mut),var(--line));}
+.dev:before{left:8px}.dev:after{right:8px}
+.dev-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 14px 14px;font-size:11px;letter-spacing:.14em;color:var(--mut)}
+.led{width:10px;height:10px;border-radius:50%;background:#2a2f2d;border:1px solid var(--line)}
+.led.rec.on,#ledRec.on{background:var(--hot);box-shadow:0 0 8px var(--hot)}
+#ledPlay.on{background:var(--acc);box-shadow:0 0 8px var(--acc)}
+#ledErr.on{background:#ffb020;box-shadow:0 0 8px #ffb020}
+.model{margin-left:auto;color:var(--fg)}
+.dev-main{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:stretch}
+@media(max-width:640px){.dev-main{grid-template-columns:1fr}}
+.reels{display:flex;gap:10px;align-items:center;justify-content:center}
+.reel{width:64px;height:64px;border-radius:50%;border:3px solid var(--mut);position:relative;background:radial-gradient(circle,var(--bg) 0 14%,transparent 15%)}
+.reel:before{content:"";position:absolute;inset:6px;border-radius:50%;background:conic-gradient(from 0deg,var(--mut) 0 12%,transparent 12% 33%,var(--mut) 33% 45%,transparent 45% 66%,var(--mut) 66% 78%,transparent 78%)}
+.reel.on{animation:spin 1.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scr{background:#03120b;border:1px solid #0d3a22;padding:12px 14px;color:#39ff7a;font-family:"Courier New",monospace;text-shadow:0 0 6px rgba(57,255,122,.6);min-height:112px}
+.smp{font-size:12px;letter-spacing:.2em;opacity:.8}
+.ttl{font-size:18px;margin:6px 0 2px;text-transform:uppercase;word-break:break-word}
+.art{font-size:13px;opacity:.85;min-height:1.2em}
+.tm{margin-top:8px;font-size:22px;letter-spacing:.12em}
+.vu{display:flex;gap:6px;align-items:flex-end;justify-content:center}
+.vch{display:flex;flex-direction:column-reverse;gap:2px;height:96px}
+.vch i{display:block;width:16px;height:5px;background:#1b2421}
+.vch i.on{background:var(--acc)}.vch i.on.m{background:#ffb020}.vch i.on.h{background:var(--hot)}
+#seek,#vol{accent-color:var(--acc)}
+#seek{width:100%;margin:14px 0 6px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ctl button,.src button{background:none;border:1px solid var(--acc);color:var(--acc);font:inherit;padding:8px 14px;cursor:pointer;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.ctl button:hover,.src button:hover{border-color:var(--hot);color:var(--hot)}
+.ctl label{margin-left:auto;color:var(--mut);font-size:11px;letter-spacing:.14em}
+.src{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.src input{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:13px;padding:8px 10px}
+.log{list-style:none;margin:0;padding:0}
+.log li{display:flex;gap:12px;align-items:baseline;border:1px solid var(--line);border-bottom:0;padding:8px 12px;background:var(--card);cursor:pointer}
+.log li:last-child{border-bottom:1px solid var(--line)}
+.log li.cur{border-left:3px solid var(--hot)}
+.log li:hover{background:var(--bg)}
+.log .n{color:var(--acc);font-size:12px;min-width:56px}
+.log .a{color:var(--mut);font-size:13px;margin-left:auto;text-align:right}
+.log .s{font-size:11px;color:#ffb020}
+@media (prefers-reduced-motion:reduce){.reel.on{animation:none}}
 </style>
 </head>
 <body>
 <header>
 <a class="brand" href="#home"><span class="lg emb"></span>VIRUS INFECTION</a>
-<nav id="nav"><a href="#home">Главная</a><a href="#team">Команда</a><a href="#events">Афиша</a><a href="#archive">Хроника</a><a href="#music">Звук</a></nav>
+<nav id="nav"><a href="#home">Главная</a><a href="#lab">Лаборатория</a><a href="#staff">Персонал</a><a href="#chronicle">Хроника</a><a href="#dev">Разработки</a><a href="#mixes">Миксы</a></nav>
 <button class="th" id="th" aria-label="Тема">◐</button>
 </header>
 <main>
-
 <section class="pg" id="home">
 <div class="hero">
 <span class="lg full" role="img" aria-label="Логотип VIRUS INFECTION"></span>
 <div>
-<p class="date">ИНДУСТРИАЛЬНАЯ ПРОМО-ГРУППА · САНКТ-ПЕТЕРБУРГ</p>
+<p class="date">ЛАБОРАТОРИЯ АУДИАЛЬНЫХ ВИРУСОВ · САНКТ-ПЕТЕРБУРГ</p>
 <h1>VIRUS INFECTION</h1>
 <p class="motto">Заражение неизбежно</p>
-<p class="lead">Лаборатория по изучению влияния аудиальных «вирусов» на живые организмы. Эксперименты проводятся в формате мероприятий: на них исследуется действие новейших «штаммов» на слушателей разных групп.</p>
-<p class="lead">Руководители лаборатории: Dr.Faust и Yoshimitsu.</p>
+<p class="lead">Лаборатория изучает влияние аудиальных «вирусов» на живые организмы. Эксперименты проводятся в формате мероприятий, эфиров и релизов: на них проверяется действие новых «штаммов» на слушателей разных групп.</p>
 <a class="btn" href="https://t.me/vinfection">Telegram</a><a class="btn hot" href="https://vk.com/vinfection">VK</a><a class="btn" href="https://t.me/vinfectionchat">Чат заражённых</a>
 </div>
 </div>
-
-<h2>О лаборатории</h2>
-<p class="lead">Предмет исследования: воздействие звука на слушателя. Аудиальным «вирусом» мы называем звуковой материал определённого жанра и интенсивности, «штаммом» новую комбинацию таких материалов, подготовленную к испытанию. Результаты наблюдаются непосредственно во время эксперимента.</p>
-<span class="tag">industrial</span><span class="tag">doomcore</span><span class="tag">darkstep</span><span class="tag">hard techno</span><span class="tag">breakcore</span><span class="tag">speedcore</span><span class="tag">crossbreed</span><span class="tag">noise</span><span class="tag">experimental</span>
-
-<h2>Предмет и метод</h2>
-<ul class="l">
-<li><b>Предмет:</b> реакция слушателей на жанры industrial, doomcore, darkstep, hard techno, breakcore, speedcore, noise.</li>
-<li><b>Метод:</b> мероприятие с заданным составом артистов и расписанием по часам.</li>
-<li><b>Площадка:</b> бар «Птичья Личность», Санкт-Петербург (Buckshot Roulette и «Жаркая вечеринка №3»).</li>
-<li><b>Условия:</b> вход на проведённые эксперименты свободный, на турнире Buckshot Roulette действует взнос участника 200 ₽.</li>
-<li><b>Испытуемые:</b> посетители мероприятий. Участников сообщества называем заражёнными, для них работает чат.</li>
-<li><b>Фиксация:</b> фото, видео и миксы публикуются в Telegram-канале.</li>
-</ul>
-
-<h2>Проведённые эксперименты</h2>
-<div class="grid">
-<div class="card"><div class="date">ЛЕТО 2025</div><h3>Вечеринка с бесплатным входом</h3><p>Формат: ночная программа с 23:00. Штаммы: horrorcore, techno / mashcore, multistyle, breakcore, noise, house. В составе 7 артистов.</p></div>
-<div class="card"><div class="date">12.07.2025</div><h3>Buckshot Roulette</h3><p>Формат: турнир по цифровой версии игры и вечеринка во втором зале бара. Штаммы: techno, industrial, schranz, electro, noise. Ведущий турнира: Dr.Faust.</p></div>
-<div class="card"><div class="date">18.07.2025</div><h3>Жаркая вечеринка №3</h3><p>Формат: ночная программа с 23:00. Штаммы: breakcore, experimental, hard techno, schranz, industrial, crossbreed, neurofunk. В составе 7 артистов.</p></div>
-</div>
-<p class="lead">Составы, площадки и условия каждого эксперимента собраны в хронике.</p>
-<a class="btn" href="#archive">Хроника</a><a class="btn hot" href="#events">Следующий эксперимент</a>
+<h2>Разделы</h2>
+<div class="grid"><div class="card"><div class="date">01</div><h3><a href="#lab">Лаборатория</a></h3><p>Назначение, термины, история, знак, подразделения, мир Doom Prime, типы заражённых.</p></div><div class="card"><div class="date">02</div><h3><a href="#staff">Персонал</a></h3><p>Руководители, профессор, главный техник, генный инженер, агенты. Должности и кодовые имена.</p></div><div class="card"><div class="date">03</div><h3><a href="#chronicle">Хроника</a></h3><p>Эксперименты с 2018 года: даты, площадки, форматы.</p></div><div class="card"><div class="date">04</div><h3><a href="#dev">Разработки</a></h3><p>Релизы VINF001–VINF004, подкаст VIRUSCAST и рубрики сообщества.</p></div><div class="card"><div class="date">05</div><h3><a href="#mixes">Миксы</a></h3><p>Журнал образцов и аудиорегистратор для воспроизведения миксов.</p></div></div>
+<h2>Следующий эксперимент</h2>
+<div class="card"><div class="date">СТАТУС: ПОДГОТОВКА</div><h3>Дата не объявлена</h3><p>Анонсы публикуются в Telegram и VK. Условия эксперимента фиксируются в анонсе: площадка, время, состав, вход.</p></div>
 </section>
 
-<section class="pg" id="team">
-<h1>Команда</h1>
-<p class="lead">Лабораторию возглавляют два руководителя. В экспериментах участвуют артисты и партнёры.</p>
-<h2>Руководители</h2>
-<div class="grid">
-<div class="card"><div class="date">РУКОВОДИТЕЛЬ</div><h3>Dr.Faust</h3><p>Лидер VIRUS INFECTION. Диджей, играет в стилях multistyle, doomcore, industrial, darkstep. Ведущий турнира Buckshot Roulette. Сценический стаж 18 лет.</p><a href="https://vk.com/drfaust_music">VK артиста</a></div>
-<div class="card"><div class="date">ВТОРОЙ РУКОВОДИТЕЛЬ</div><h3>Yoshimitsu</h3><p>Диджей, играет techno и mashcore. На Buckshot Roulette открывал игровую зону в 21:00. Выступал на экспериментах 2025 года.</p><a href="https://t.me/y05h1m1t5u">Telegram артиста</a></div>
-</div>
-<h2>Участники экспериментов</h2>
-<p class="lead">Артисты, выступавшие на мероприятиях VIRUS INFECTION.</p>
-<span class="tag">Iuichi</span><span class="tag">Doc Smile</span><span class="tag">Panda</span><span class="tag">mx1md3</span><span class="tag">Discoursemonger</span><span class="tag">TECHNOKABAN</span><span class="tag">Electralex</span><span class="tag">Nano Synthetic</span><span class="tag">Speed Mode</span><span class="tag">ЭлектроХолм</span><span class="tag">Executor</span><span class="tag">Outside DJ</span><span class="tag">Mordvintseff</span>
-<h2>Партнёры и площадки</h2>
-<span class="tag">Птичья Личность</span><span class="tag">MURTC</span><span class="tag">RAVERHEAD</span><span class="tag">DATAMOSH</span><span class="tag">Breakcore Family</span><span class="tag">Tripolar</span>
-<h2>Связь</h2>
-<a class="btn" href="https://t.me/vinfection">Telegram</a><a class="btn hot" href="https://vk.com/vinfection">VK</a><a class="btn" href="https://t.me/vinfectionchat">Чат заражённых</a><a class="btn" href="https://t.me/addstickers/virus_infection">Стикерпак</a>
+<section class="pg" id="lab">
+<h1>Лаборатория</h1>
+<p class="lead">VIRUS INFECTION: лаборатория по изучению влияния аудиальных вирусов на живые организмы. Руководители: Dr.Faust (основатель, директор) и Yoshimitsu.</p>
+<h2>Термины</h2>
+<div class="tw"><table><thead><tr><th>Термин</th><th>Значение</th></tr></thead><tbody><tr><td>Аудиальный вирус</td><td>Звуковой материал определённого жанра и интенсивности: doomcore, darkcore, industrial, hardcore, techno, dubstep, noise.</td></tr><tr><td>Штамм</td><td>Новая комбинация вирусных компонентов, подготовленная к испытанию: микс, релиз или программа вечера.</td></tr><tr><td>Эксперимент</td><td>Мероприятие, радиоэфир или релиз, где проверяется действие штамма.</td></tr><tr><td>Заражённые</td><td>Участники сообщества. Вирус распространяется только через них.</td></tr><tr><td>Подопытные</td><td>Слушатели и посетители экспериментов. Их реакции фиксируются в отчётах.</td></tr></tbody></table></div>
+<h2>История</h2>
+<div class="tw"><table><thead><tr><th>Период</th><th>Событие</th></tr></thead><tbody><tr><td>Ранние годы</td><td>Сообщество ведётся как VIRUS Group: hardcore, hardstyle, drum'n'bass, crossbreed, еженедельные выпуски и подборки. Девиз: SPREAD THE VIRUS. Первое мероприятие прошло при небольшом числе гостей, второе названо неудачным. В архиве есть запись выступления Dr.Faust от 13.06.2014 (Ростов-на-Дону).</td></tr><tr><td>Перерыв</td><td>Команда распалась, мероприятия не проводились. Группу продолжал вести один из участников, перенеся проект в большой город.</td></tr><tr><td>2018</td><td>Деятельность восстановлена со сменой направления: упор на industrial и doomcore. В лабораторию приняты новые сотрудники. 13 сентября проведён эксперимент по захвату радиочастоты Reactor Radio.</td></tr><tr><td>2019</td><td>Три мероприятия, два подкаста, два релиза (итоги года). Серия «Тяжёлые четверги SAINT-P», кибер-вечеринка CYBERATTACK, запуск подкаста VIRUSCAST.</td></tr><tr><td>2020</td><td>Пандемия: эфиры-терапии, эксперимент INCUBATION (28.11), подразделение D-Virus, релиз VINF004.</td></tr><tr><td>2021–2023</td><td>Период стазиса. Публикуется сюжет о планете Doom Prime и рубрики аудиоисторий. Проводится серия «Лёгкий вторник».</td></tr><tr><td>2024–2026</td><td>Бар «Птичья Личность»: «Лёгкий вторник», «Жаркие вечеринки», турнир Buckshot Roulette. Совместный проект The Rift с RAVERHEAD.</td></tr></tbody></table></div>
+<h2>Знак</h2>
+<p class="lead">Знак заражённого определил Визуальный инженер в начале существования лаборатории. Основой послужили изображения бактериофагов, вирусов, избирательно поражающих бактериальные клетки. Это определило дальнейший путь проекта и его бренд. В знаке видят аббревиатуру VI.</p>
+<h2>Подразделения</h2>
+<div class="grid"><div class="card"><div class="date">ДОПОЛНИТЕЛЬНОЕ НАПРАВЛЕНИЕ</div><h3>D-Virus</h3><p>Прототип вируса альтернативного воздействия: dubstep, deep, dark, dub. Вечеринка лаборатории 22.02.2020.</p></div><div class="card"><div class="date">НАУЧНЫЙ СОТРУДНИК</div><h3>N.A.N.Hard</h3><p>Noise, harsh noise, dark ambient. Препарат «N.A.N.(Hard)Ⓔ» и аудиоистории рубрики Virus Story.</p></div><div class="card"><div class="date">ПАРТНЁРЫ</div><h3>НИИ MIDGARD RAVE · TechnoCore</h3><p>Совместные научные работы: влияние низкочастотных аудиоволн на поведение человека; серия «Тяжёлые четверги».</p></div></div>
+<h2>Типы заражённых</h2>
+<div class="tw"><table><thead><tr><th>Тип</th><th>Название</th><th>Признаки</th></tr></thead><tbody><tr><td>I</td><td>«Свежачок»</td><td>Сохраняют человеческий облик, наибольшая подвижность, короткий инкубационный период.</td></tr><tr><td>II</td><td>«Классический»</td><td>Дезориентированы, асоциальное поведение, наиболее поддаются влиянию вируса.</td></tr><tr><td>III</td><td>«Душнила»</td><td>Сопротивляются вирусу, сохраняют сознание, но не избежали мутаций; определяют источник заражения.</td></tr><tr><td>IV</td><td>«Вирусолог»</td><td>Длительное воздействие, личность разлагается, вызывают новые мутации.</td></tr></tbody></table></div>
+<h2>Мир Doom Prime</h2>
+<p class="lead">Вымышленная заражённая планета из серии постов 2023 года: тёмный индустриальный мир с небоскрёбами и трущобами, ядовитым туманом и неоном. Правит тоталитарное правительство. Андеграундные вечеринки служат жителям формой протеста. Среди персонажей диджей Raven, уличный художник X и бывший солдат Блейз. В сюжете о мартовском вирусе планеты проходит закрытая вечеринка Pandemic с лимитом в 49 человек.</p>
 </section>
 
-<section class="pg" id="events">
-<h1>Афиша</h1>
-<p class="lead">Следующий эксперимент пока не объявлен. Новые даты публикуются в Telegram.</p>
-<div class="card"><div class="date">СТАТУС: ПОДГОТОВКА</div><h3>Следующее мероприятие</h3><p>Дата, площадка и состав будут указаны после анонса.</p><a class="btn" href="https://t.me/vinfection">Открыть канал</a></div>
+<section class="pg" id="staff">
+<h1>Персонал</h1>
+<p class="lead">Должности и кодовые имена по материалам лаборатории. Руководят ею два человека: Dr.Faust и Yoshimitsu.</p>
+<div class="tw"><table><thead><tr><th>Кодовое имя</th><th>Должность</th><th>Примечание</th></tr></thead><tbody><tr><td>Dr.Faust</td><td>Основатель, директор</td><td>Нулевой пациент. Объект SCP-002-VI. Ответственный за лабораторию. Стили: doomcore, darkcore, industrial, techno.</td></tr><tr><td>Yoshimitsu</td><td>Секретарь отдела управления, второй руководитель</td><td>Соавтор VINF004. Стили: techno, mashcore, hardcore, industrial hardcore.</td></tr><tr><td>Mg Daves</td><td>Профессор лаборатории</td><td>Официальный голос лаборатории. Автор VINF001, ведущий VIRUSCAST.</td></tr><tr><td>Antivolt</td><td>Главный техник</td><td>Объект SCP-420-VI. Industrial hardcore, industrial techno. Соавтор VINF003 и VINF004.</td></tr><tr><td>BLDZR</td><td>Ведущий генный инженер</td><td>Объект SCP-812-VI. Crossbreed, hardcore, uptempo, early terror. Первое пополнение лаборатории.</td></tr><tr><td>Anlie</td><td>Специалист по работе с реактивами</td><td>Назначена приказом от 02.12.2018.</td></tr><tr><td>Mathross</td><td>Сотрудник лаборатории</td><td>Объект SCP-228-VI. Принят в 2018 году.</td></tr><tr><td>Fastahgabbah</td><td>Агент</td><td>Автор VINF002 «Hell of Tomino EP».</td></tr><tr><td>Psycho Kay</td><td>Редактор</td><td>Пополнение редакции сообщества.</td></tr><tr><td>VV Sect</td><td>Офицер службы безопасности</td><td>Задействован в эксперименте SCP-001-VI.</td></tr><tr><td>Агенты VIRUSCAST</td><td>Агенты</td><td>Psychoweapon, QWRST, Hatedriven, IUichi, Schizomaniac.</td></tr></tbody></table></div>
 </section>
 
-<section class="pg" id="archive">
+<section class="pg" id="chronicle">
 <h1>Хроника</h1>
-<h2>Эксперименты VIRUS INFECTION</h2>
-<div class="grid">
-<div class="card past"><div class="date">ЛЕТО 2025 · ДАТА НЕ УКАЗАНА</div><h3>Вечеринка с бесплатным входом</h3><p>Вход свободный. Программа с 23:00. Executor (horrorcore), Yoshimitsu (techno / mashcore), Dr.Faust (multistyle), Iuichi (breakcore), Panda (breakcore / noise), Doc Smile (breakcore), Mordvintseff (house).</p></div>
-<div class="card past"><div class="date">12.07.2025 · «ПТИЧЬЯ ЛИЧНОСТЬ»</div><h3>Buckshot Roulette</h3><p>Турнир по цифровой версии игры, сбор гостей в 21:00, начало в 22:00, взнос 200 ₽ в призовой фонд. Во втором зале вечеринка: techno, industrial, schranz, electro, noise. Вход свободный. Ведущий: Dr.Faust. Играли: Iuichi, Electralex, Discoursemonger, Nano Synthetic, Yoshimitsu, Speed Mode, ЭлектроХолм, TECHNOKABAN.</p></div>
-<div class="card past"><div class="date">18.07.2025 · «ПТИЧЬЯ ЛИЧНОСТЬ»</div><h3>Жаркая вечеринка №3</h3><p>Вход свободный, с 23:00 до утра. mx1md3, Panda, TECHNOKABAN, Discoursemonger, Doc Smile, Outside DJ, Dr.Faust.</p></div>
-</div>
-<h2>Совместные проекты</h2>
-<div class="grid">
-<div class="card past"><div class="date">24–25.08.2024 · СПб</div><h3>Tripolar</h3><p>Фестиваль в театре «НИТИ». VIRUS INFECTION в числе участвующих промогрупп наряду с MURTC, TIME RAGE, AFWD, СЛОНЫ.</p></div>
-<div class="card past"><div class="date">06.12.2024 · СПб</div><h3>Hazard Anthem</h3><p>Коллаборация с deathstep-лейблом MURTC. Бар «Птичья Личность». Deathstep, tearout, hard techno, industrial techno, IDM.</p></div>
-<div class="card past"><div class="date">28.03.2026 · СПб</div><h3>The Rift</h3><p>Совместный проект с RAVERHEAD, клуб «Ритмы». Партнёры: DATAMOSH, HAKKENATION, Breakcore Family.</p><a href="https://vk.com/club236234752">Группа события</a></div>
-</div>
-<h2>Участие в сторонних мероприятиях</h2>
-<ul class="l">
-<li>02.05.2025: Over Game, Санкт-Петербург</li>
-<li>21.06.2025: «Цветные», Санкт-Петербург</li>
-<li>22.11.2025: Collapse, Санкт-Петербург</li>
-<li>06.12: Noise Fest</li>
-<li>Amenime, Anime Stage</li>
-<li>20.06.2026: Amenime 7, Москва</li>
-<li>06.09.2026: Antidote, Санкт-Петербург (день рождения Dr.Faust)</li>
-</ul>
+<p class="lead">Эксперименты по данным архива сообщества. Тип: собственный, совместный, эфир или участие.</p>
+<div class="tw"><table><thead><tr><th>Дата</th><th>Эксперимент</th><th>Площадка и условия</th><th>Тип</th></tr></thead><tbody><tr><td>13.09.2018</td><td>Захват радиочастоты Reactor Radio</td><td>Радиоэфир. Dr.Faust, BLDZR, Antivolt, Mathross.</td><td>Эфир</td></tr><tr><td>02.02.2019</td><td>02/02 Gabber Trip</td><td>Mg Daves, «Лес Villa», Казанская 7, СПб.</td><td>Участие</td></tr><tr><td>16.03.2019</td><td>SCP-001-VI</td><td>Бар Parabellum, Банковский пер. 3, СПб. Dr.Faust, Mathross, Antivolt, BLDZR.</td><td>Собственный</td></tr><tr><td>10.05.2019</td><td>Celebration of Life</td><td>Showcase Dr.Faust, BLDZR, Antivolt.</td><td>Участие</td></tr><tr><td>23.06.2019</td><td>Испытание нового вируса</td><td>«Лес Твин». Годовщина серии «Тяжёлые четверги SAINT-P».</td><td>Совместный</td></tr><tr><td>2019</td><td>«Тяжёлый четверг» с TechnoCore</td><td>Бар SA1NT. Dr.Faust и другие. Дата не указана.</td><td>Совместный</td></tr><tr><td>2019</td><td>CYBERATTACK</td><td>Кибер-вечеринка на 2 сцены. Турнир по тетрису, взнос 100 ₽. Дата не указана.</td><td>Собственный</td></tr><tr><td>22.02.2020</td><td>Вечеринка лаборатории в лофте UNDERWATER</td><td>Темы: SCP, doomcore, doom techno, industrial. Подразделение D-Virus.</td><td>Собственный</td></tr><tr><td>19.04.2020</td><td>Групповая терапия</td><td>Прямой эфир. Dr.Faust, Antivolt, Mathross.</td><td>Эфир</td></tr><tr><td>28.11.2020</td><td>INCUBATION</td><td>Совместно с МОТИВ CREW. Создание нового штамма из одиннадцати «спор».</td><td>Совместный</td></tr><tr><td>2023–2024</td><td>«Лёгкий вторник»</td><td>Бар «Птичья Личность». Вход свободный. Первый лайв VIRUS INFECTION.</td><td>Собственный</td></tr><tr><td>29.10.2024</td><td>«Лёгкий вторник»</td><td>«Птичья Личность», 19:00. Mista Proper, Dr.Faust, Юичи, Yoshi, Lolikun, Executor. Вход свободный, стикерпак гостям.</td><td>Собственный</td></tr><tr><td>Лето 2025</td><td>Вечеринка с бесплатным входом</td><td>Программа с 23:00. Executor, Yoshimitsu, Dr.Faust, Iuichi, Panda, Doc Smile, Mordvintseff.</td><td>Собственный</td></tr><tr><td>12.07.2025</td><td>Buckshot Roulette</td><td>«Птичья Личность». Турнир в 22:00, взнос 200 ₽, вечеринка во втором зале с 23:00. Ведущий: Dr.Faust.</td><td>Собственный</td></tr><tr><td>18.07.2025</td><td>Жаркая вечеринка №3</td><td>«Птичья Личность». Вход свободный. mx1md3, Panda, TECHNOKABAN, Discoursemonger, Doc Smile, Outside DJ, Dr.Faust.</td><td>Собственный</td></tr><tr><td>28.03.2026</td><td>The Rift</td><td>Клуб «Ритмы», СПб. Совместно с RAVERHEAD, 18+, 800 ₽.</td><td>Совместный</td></tr></tbody></table></div>
 </section>
 
-<section class="pg" id="music">
-<h1>Звук</h1>
-<p class="lead">Миксы и записи из канала. Ссылки ведут в Telegram.</p>
-<h2>Миксы команды</h2>
-<div class="grid">
-<div class="card"><div class="date">DR.FAUST · MIX</div><h3>Collapse Mix</h3><p>Микс Dr.Faust.</p><a class="btn" href="https://t.me/vinfection/852">Слушать</a></div>
-<div class="card"><div class="date">DR.FAUST · PODCAST</div><h3>Darkstep · Implantant #82</h3><p>Подкаст Dr.Faust, darkstep.</p><a class="btn" href="https://t.me/vinfection/858">Слушать</a></div>
-<div class="card"><div class="date">YOSHIMITSU</div><h3>Техно и mashcore</h3><p>Ссылки на миксы будут добавлены.</p><a class="btn" href="https://t.me/y05h1m1t5u">Его канал</a></div>
+<section class="pg" id="dev">
+<h1>Разработки</h1>
+<h2>Релизы</h2>
+<div class="tw"><table><thead><tr><th>Номер</th><th>Название</th><th>Автор</th><th>Компоненты</th></tr></thead><tbody><tr><td>VINF001</td><td>Doomed Mankind</td><td>Mg Daves</td><td>doomcore</td></tr><tr><td>VINF002</td><td>Hell of Tomino EP</td><td>Fastahgabbah</td><td>doomcore, darkcore</td></tr><tr><td>VINF003</td><td>Virus Infection (feat. MG Daves)</td><td>Antivolt & Dr.Faust</td><td>doomcore, darkcore, industrial</td></tr><tr><td>VINF004</td><td>Immunological Disorder</td><td>Antivolt, Dr.Faust, Yoshimitsu</td><td>doomcore, darkcore, industrial</td></tr></tbody></table></div>
+<h2>VIRUSCAST</h2>
+<p class="lead">Подкаст лаборатории. Выпуск состоит из микса агента и интервью с ним, которое ведёт профессор Mg Daves.</p>
+<div class="tw"><table><thead><tr><th>Выпуск</th><th>Агент</th><th>Компонент</th></tr></thead><tbody><tr><td>#01</td><td>Psychoweapon</td><td>industrial hardcore</td></tr><tr><td>#02</td><td>QWRST</td><td>doomcore</td></tr><tr><td>#03</td><td>Hatedriven</td><td>darkcore</td></tr><tr><td>#04</td><td>IUichi</td><td>industrial techno</td></tr><tr><td>#05</td><td>—</td><td>doomcore, industrial</td></tr><tr><td>#06</td><td>—</td><td>—</td></tr></tbody></table></div>
+<h2>Рубрики сообщества</h2>
+<span class="tag">Virus Story</span><span class="tag">Virus Creepy Stories (9 глав)</span><span class="tag">Virus Relax</span><span class="tag">Virus Review</span><span class="tag">Virus Bio</span><span class="tag">Типы заражённых</span><span class="tag">Рабочий журнал</span><span class="tag">Приказы</span>
+</section>
+
+<section class="pg" id="mixes">
+<h1>Миксы</h1>
+<p class="lead">Журнал образцов. Выберите образец и нажмите «Пуск». Ссылки на файлы указываются в блоке MIXES в конце файла: поле <code>src</code> каждого образца.</p>
+<div class="dev" id="dev">
+<div class="dev-top"><span class="led" id="ledRec"></span><span class="lbl">REC</span><span class="led" id="ledPlay"></span><span class="lbl">PLAY</span><span class="led" id="ledErr"></span><span class="lbl" id="errLbl">NO FILE</span><span class="model">VI-AR/07 · АУДИОРЕГИСТРАТОР</span></div>
+<div class="dev-main">
+<div class="reels"><div class="reel" id="r1"></div><div class="reel" id="r2"></div></div>
+<div class="scr"><div class="smp" id="smp">ОБРАЗЕЦ —</div><div class="ttl" id="ttl">Образец не выбран</div><div class="art" id="art">&nbsp;</div><div class="tm" id="tm">00:00 / 00:00</div></div>
+<div class="vu"><div class="vch" id="vuL"></div><div class="vch" id="vuR"></div></div>
 </div>
-<h2>Записи в канале</h2>
-<div class="grid">
-<div class="card"><div class="date">Origin Of Styx</div><h3>Enjoy The Apocalypse</h3><a href="https://t.me/vinfection/821">Слушать</a></div>
-<div class="card"><div class="date">Soulshaver &amp; Rekirts</div><h3>A Better Test Of Power</h3><a href="https://t.me/vinfection/825">Слушать</a></div>
-<div class="card"><div class="date">Braintune</div><h3>God Is Evil</h3><a href="https://t.me/vinfection/827">Слушать</a></div>
-<div class="card"><div class="date">Rosewater</div><h3>Normality</h3><a href="https://t.me/vinfection/823">Слушать</a></div>
-<div class="card"><div class="date">DKaos</div><h3>We Are The Virus</h3><a href="https://t.me/vinfection/810">Слушать</a></div>
-<div class="card"><div class="date">The Silence</div><h3>Industrial Counter · Nothing</h3><a href="https://t.me/vinfection/801">Слушать</a></div>
+<input type="range" id="seek" min="0" max="1000" value="0" aria-label="Перемотка">
+<div class="ctl"><button id="bPrev" aria-label="Назад">⏮</button><button id="bPlay" aria-label="Пуск">▶ ПУСК</button><button id="bStop" aria-label="Стоп">⏹</button><button id="bNext" aria-label="Вперёд">⏭</button><label>ГРОМКОСТЬ <input type="range" id="vol" min="0" max="100" value="80"></label></div>
+<div class="src"><input id="srcIn" placeholder="Прямая ссылка на аудиофайл (mp3, ogg, wav) для выбранного образца"><button id="srcBtn">Подключить</button></div>
 </div>
-<h2>Жанры</h2>
-<span class="tag">industrial</span><span class="tag">doomcore</span><span class="tag">darkstep</span><span class="tag">hard techno</span><span class="tag">hardcore</span><span class="tag">breakcore</span><span class="tag">speedcore</span><span class="tag">extratone</span><span class="tag">mashcore</span><span class="tag">crossbreed</span><span class="tag">rhythmic noise</span><span class="tag">IDM</span><span class="tag">deathstep</span><span class="tag">horrorcore</span>
+<h2>Журнал образцов</h2>
+<ol class="log" id="log"></ol>
 </section>
 
 </main>
 <footer><span class="lg emb"></span>© VIRUS INFECTION · ЗАРАЖЕНИЕ НЕИЗБЕЖНО · 18+</footer>
 <script>
 (function(){
-var pages=["home","team","events","archive","music"];
+var pages=["home","lab","staff","chronicle","dev","mixes"];
 function go(){var h=(location.hash||"#home").slice(1);if(pages.indexOf(h)<0)h="home";
 pages.forEach(function(p){document.getElementById(p).classList.toggle("on",p===h)});
 document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
@@ -198,6 +212,72 @@ document.getElementById("th").onclick=function(){
 var dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&!matchMedia("(prefers-color-scheme:light)").matches);
 r.setAttribute("data-theme",dark?"light":"dark");};
 })();
+</script>
+<script>
+/* ===== КАТАЛОГ МИКСОВ =====
+   Чтобы подключить файл, вставьте прямую ссылку в поле src нужного образца.
+   Пример: src: "https://example.com/mixes/vi-001.mp3"
+   Пустой src означает «файл не подключён». */
+var MIXES=[
+{id:"VI-001",title:"Virus Infection Promo Mix (2018)",artist:"Antivolt",src:""},
+{id:"VI-002",title:"HARDSPOT mix",artist:"BLDZR",src:""},
+{id:"VI-003",title:"Cytopathogenic Action",artist:"Dr.Faust",src:""},
+{id:"VI-004",title:"Showcase @ Celebration of Life, 10.05.2019",artist:"Dr.Faust",src:""},
+{id:"VI-005",title:"Showcase @ Celebration of Life, 10.05.2019",artist:"BLDZR",src:""},
+{id:"VI-006",title:"Celebration of Life 2019 (DJ set)",artist:"Antivolt",src:""},
+{id:"VI-007",title:"Live @ Forest of the Doom",artist:"Dr.Faust",src:""},
+{id:"VI-008",title:"Live @ Forest of the Doom",artist:"BLDZR",src:""},
+{id:"VI-009",title:"Live @ Forest of the Doom",artist:"Antivolt",src:""},
+{id:"VI-010",title:"SCP-420-VI",artist:"Antivolt",src:""},
+{id:"VI-011",title:"Live @ SCI",artist:"Dr.Faust",src:""},
+{id:"VI-012",title:"Live @ SCI",artist:"BLDZR",src:""},
+{id:"VI-013",title:"Stamm VI. X-18 mix",artist:"BLDZR",src:""},
+{id:"VI-014",title:"Virused Miracle Field",artist:"Mathross",src:""},
+{id:"VI-015",title:"Live @ PODZEMKA Club, Ростов-на-Дону, 13.06.2014",artist:"Dr.Faust",src:""},
+{id:"VI-016",title:"D-Virus: вечеринка лаборатории, 22.02.2020",artist:"Подразделение D-Virus",src:""},
+{id:"VI-017",title:"VIRUSCAST #01",artist:"Psychoweapon",src:""},
+{id:"VI-018",title:"VIRUSCAST #02",artist:"QWRST",src:""},
+{id:"VI-019",title:"VIRUSCAST #03",artist:"Hatedriven",src:""},
+{id:"VI-020",title:"VIRUSCAST #04",artist:"IUichi",src:""},
+{id:"VI-021",title:"Collapse Mix",artist:"Dr.Faust",src:""},
+{id:"VI-022",title:"Darkstep · Implantant Podcast #82",artist:"Dr.Faust",src:""},
+{id:"VI-023",title:"Что-то старое, что-то новое",artist:"VIRUS INFECTION",src:""}
+];
+(function(){
+var $=function(i){return document.getElementById(i)};
+var au=new Audio();au.preload="none";
+var cur=-1,SEG=14,timer=null;
+function fmt(s){if(!isFinite(s))s=0;var m=Math.floor(s/60),x=Math.floor(s%60);return(m<10?"0":"")+m+":"+(x<10?"0":"")+x}
+['vuL','vuR'].forEach(function(id){var h="";for(var i=0;i<SEG;i++)h+="<i></i>";$(id).innerHTML=h});
+function vu(l,r){[['vuL',l],['vuR',r]].forEach(function(p){var n=Math.round(p[1]*SEG);var k=$(p[0]).children;for(var i=0;i<SEG;i++){k[i].className=i<n?"on"+(i>SEG-4?" h":i>SEG-8?" m":""):""}})}
+function leds(){$("ledPlay").className="led"+(!au.paused?" on":"");$("ledRec").className="led"+(!au.paused?" on":"");$("r1").className="reel"+(!au.paused?" on":"");$("r2").className="reel"+(!au.paused?" on":"");$("bPlay").textContent=au.paused?"▶ ПУСК":"⏸ ПАУЗА"}
+function err(on,msg){$("ledErr").className="led"+(on?" on":"");$("errLbl").textContent=on?msg:"READY"}
+function tick(){clearInterval(timer);if(au.paused){vu(0,0);return}
+timer=setInterval(function(){var v=au.volume,b=.35+Math.random()*.55;vu(b*v,Math.max(0,b*v*(.85+Math.random()*.2)))},90)}
+function draw(){var it=MIXES[cur];$("smp").textContent="ОБРАЗЕЦ "+(it?it.id:"—");$("ttl").textContent=it?it.title:"Образец не выбран";$("art").innerHTML=it?it.artist:"&nbsp;";
+Array.prototype.forEach.call($("log").children,function(li,i){li.className=i===cur?"cur":""})}
+function list(){var h="";MIXES.forEach(function(m,i){h+='<li data-i="'+i+'"><span class="n">'+m.id+'</span><span>'+m.title+'</span><span class="a">'+m.artist+(m.src?"":' <span class="s">· файл не подключён</span>')+'</span></li>'});$("log").innerHTML=h}
+function sel(i,go){if(i<0||i>=MIXES.length)return;au.pause();cur=i;var it=MIXES[i];draw();
+if(!it.src){au.removeAttribute("src");err(true,"NO FILE");leds();tick();$("tm").textContent="00:00 / 00:00";$("seek").value=0;return}
+err(false);au.src=it.src;au.load();$("seek").value=0;if(go)au.play().catch(function(){err(true,"LOAD ERROR")});leds()}
+function nextPlayable(d){var n=MIXES.length,i=cur;for(var k=0;k<n;k++){i=(i+d+n)%n;if(MIXES[i].src)return i}return -1}
+$("log").addEventListener("click",function(e){var li=e.target.closest("li");if(li)sel(+li.getAttribute("data-i"),true)});
+$("bPlay").onclick=function(){if(cur<0){var i=nextPlayable(0);if(i<0){err(true,"NO FILE");return}sel(i,true);return}
+var it=MIXES[cur];if(!it.src){err(true,"NO FILE");return}
+if(au.paused)au.play().catch(function(){err(true,"LOAD ERROR")});else au.pause()};
+$("bStop").onclick=function(){au.pause();au.currentTime=0;leds();tick()};
+$("bNext").onclick=function(){var i=nextPlayable(1);if(i>=0)sel(i,true);else if(cur<MIXES.length-1)sel(cur+1,false)};
+$("bPrev").onclick=function(){var i=nextPlayable(-1);if(i>=0)sel(i,true);else if(cur>0)sel(cur-1,false)};
+$("vol").oninput=function(){au.volume=this.value/100};au.volume=.8;
+$("seek").oninput=function(){if(au.duration)au.currentTime=au.duration*this.value/1000};
+$("srcBtn").onclick=function(){var u=$("srcIn").value.trim();if(!u)return;if(cur<0)cur=0;MIXES[cur].src=u;list();sel(cur,true)};
+au.addEventListener("play",function(){leds();tick()});au.addEventListener("pause",function(){leds();tick()});
+au.addEventListener("ended",function(){var i=nextPlayable(1);if(i>=0&&i!==cur)sel(i,true);else{leds();tick()}});
+au.addEventListener("timeupdate",function(){$("tm").textContent=fmt(au.currentTime)+" / "+fmt(au.duration);if(au.duration)$("seek").value=Math.round(au.currentTime/au.duration*1000)});
+au.addEventListener("error",function(){err(true,"LOAD ERROR");leds();tick()});
+list();draw();leds();err(false);
+})();
+
 </script>
 </body>
 </html>
