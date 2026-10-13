@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VIRUS INFECTION — заражение неизбежно</title>
+<style>
+:root{--bg:#07090a;--fg:#e6ece8;--mut:#7d8a83;--acc:#39ff7a;--hot:#ff2e4d;--card:#0e1312;--line:#1c2724;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef2ef;--fg:#0c1210;--mut:#566159;--acc:#0a9a3f;--hot:#d0122f;--card:#fff;--line:#cfd9d3}}
+:root[data-theme="light"]{--bg:#eef2ef;--fg:#0c1210;--mut:#566159;--acc:#0a9a3f;--hot:#d0122f;--card:#fff;--line:#cfd9d3}
+:root[data-theme="dark"]{--bg:#07090a;--fg:#e6ece8;--mut:#7d8a83;--acc:#39ff7a;--hot:#ff2e4d;--card:#0e1312;--line:#1c2724}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Courier New",ui-monospace,monospace;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(57,255,122,.035) 3px 4px);z-index:5}
+a{color:var(--acc);text-decoration:none}a:hover{color:var(--hot)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px}
+.logo{font-weight:700;letter-spacing:.2em;color:var(--fg)}
+.logo b{color:var(--hot)}
+nav{display:flex;flex-wrap:wrap;gap:4px 16px;margin-left:auto}
+nav a{color:var(--mut);text-transform:uppercase;font-size:13px;letter-spacing:.1em;padding:4px 0;border-bottom:2px solid transparent}
+nav a.on{color:var(--acc);border-color:var(--acc)}
+main{max-width:980px;margin:0 auto;padding:32px 20px 60px}
+.pg{display:none}.pg.on{display:block}
+h1{font-size:clamp(34px,9vw,84px);line-height:.95;margin:.2em 0;letter-spacing:.04em;text-transform:uppercase}
+h1 span{color:var(--hot);animation:gl 3s infinite steps(1)}
+@keyframes gl{0%,92%{text-shadow:none}93%{text-shadow:3px 0 var(--acc),-3px 0 var(--hot)}96%{text-shadow:-2px 0 var(--acc),2px 0 var(--hot)}100%{text-shadow:none}}
+h2{text-transform:uppercase;letter-spacing:.12em;font-size:20px;border-left:4px solid var(--hot);padding-left:12px;margin:36px 0 16px}
+.lead{color:var(--mut);max-width:60ch}
+.tag{display:inline-block;border:1px solid var(--line);color:var(--mut);padding:2px 8px;margin:0 6px 6px 0;font-size:12px}
+.btn{display:inline-block;border:1px solid var(--acc);padding:10px 18px;margin:8px 10px 0 0;text-transform:uppercase;letter-spacing:.1em;font-size:13px}
+.btn.hot{border-color:var(--hot);color:var(--hot)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);padding:18px;position:relative}
+.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--acc),var(--hot))}
+.date{color:var(--acc);font-size:13px;letter-spacing:.1em}
+.card h3{margin:6px 0;font-size:18px;text-transform:uppercase}
+.past{opacity:.85}
+.stat{font-size:34px;color:var(--acc);font-weight:700}
+.row{display:flex;flex-wrap:wrap;gap:24px;margin:24px 0}
+.row div{min-width:110px}.row small{display:block;color:var(--mut);text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+ul.l{padding-left:18px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--mut);font-size:13px}
+.th{background:none;border:1px solid var(--line);color:var(--mut);padding:4px 10px;cursor:pointer;font:inherit;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">VIRUS<b>/</b>INFECTION</div>
+<nav id="nav">
+<a href="#home">Главная</a><a href="#events">Афиша</a><a href="#archive">Архив</a><a href="#music">Музыка</a><a href="#about">О нас</a>
+</nav>
+<button class="th" id="th" aria-label="Тема">◐</button>
+</header>
+<main>
+
+<section class="pg" id="home">
+<p class="date">// ИНДУСТРИАЛЬНАЯ ПРОМО-ГРУППА · САНКТ-ПЕТЕРБУРГ</p>
+<h1>Заражение<br><span>неизбежно</span></h1>
+<p class="lead">Прямая бочка против ломаных ритмов. Мы собираем ночи, где индастриал, hardcore, breakcore и всё, что между ними, смешиваются в один поток.</p>
+<a class="btn" href="https://t.me/vinfection">Telegram-канал</a><a class="btn hot" href="https://vk.com/club15128735">Группа VK</a><a class="btn" href="https://t.me/vinfectionchat">Чат заражённых</a>
+<div class="row">
+<div><span class="stat">6+</span><small>событий за сезон</small></div>
+<div><span class="stat">2</span><small>города: СПб и Москва</small></div>
+<div><span class="stat">18</span><small>лет Dr.Faust на сцене</small></div>
+</div>
+<h2>Следующее заражение</h2>
+<div class="card"><div class="date">СКОРО</div><h3>Анонс в подготовке</h3><p class="lead">Новые даты появляются первыми в Telegram. Подпишись, чтобы не пропустить.</p><a class="btn" href="https://t.me/vinfection">Следить</a></div>
+<h2>Звук</h2>
+<span class="tag">industrial</span><span class="tag">hardcore</span><span class="tag">breakcore</span><span class="tag">darkstep</span><span class="tag">hard techno</span><span class="tag">extratone</span><span class="tag">rhythmic noise</span><span class="tag">IDM</span><span class="tag">glitch</span><span class="tag">doomcore</span>
+</section>
+
+<section class="pg" id="events">
+<h1>Афиша</h1>
+<p class="lead">Актуальных анонсов на сайте пока нет. Все новые даты публикуются в канале, а билеты продаются через Qtickets.</p>
+<div class="card"><div class="date">СТАТУС: ОЖИДАНИЕ СИГНАЛА</div><h3>Следующее событие</h3><p>Дата, площадка и лайн-ап будут здесь после анонса.</p><a class="btn" href="https://t.me/vinfection">Открыть канал</a></div>
+<h2>Формат афиши</h2>
+<ul class="l"><li>дата и время начала</li><li>площадка и адрес</li><li>лайн-ап по сценам</li><li>возрастное ограничение и цена</li><li>кнопка «купить билет»</li></ul>
+</section>
+
+<section class="pg" id="archive">
+<h1>Архив</h1>
+<p class="lead">Где уже случилось заражение.</p>
+<div class="grid">
+<div class="card past"><div class="date">22.11.2025 · СПб</div><h3>Collapse</h3><p>Бар «Птичья Личность», Рубинштейна 28Д. Dr.Faust вошёл в лайн-ап вместо снявшихся артистов. Девять артистов в программе.</p></div>
+<div class="card past"><div class="date">06.12 · NOISE FEST</div><h3>Noise Fest</h3><p>Ночь перегруза: glitch, deathstep, hard techno, rhythmic noise, horror rap core.</p></div>
+<div class="card past"><div class="date">28.03.2026 · СПб</div><h3>The Rift</h3><p>Клуб «Ритмы», СевКабельПорт. Встреча миров VIRUS INFECTION и RAVERHEAD, 14 артистов, 18+, вход 800 ₽. Партнёры: DATAMOSH, Breakcore Family.</p><a href="https://vk.com/club236234752">Группа события</a></div>
+<div class="card past"><div class="date">20.06.2026 · Москва</div><h3>Amenime 7</h3><p>Клуб «Смена». Dr.Faust на второй сцене, два танцпола, 12 часов, 18+.</p></div>
+<div class="card past"><div class="date">06.09.2026 · СПб</div><h3>Antidote: День рождения Dr.Faust</h3><p>Терраса М4, Мельничная 4. 36 лет жизни и 18 лет на сцене. Doomcore, techno, D&amp;B, hardcore, breakcore, speedcore, extratone. Донейшн-фри, 14:00–23:00.</p></div>
+</div>
+</section>
+
+<section class="pg" id="music">
+<h1>Музыка</h1>
+<p class="lead">Миксы и подкасты Dr.Faust. Ссылки на плееры подтянутся сюда, пока слушай в Telegram.</p>
+<div class="grid">
+<div class="card"><div class="date">MIX</div><h3>Collapse Mix</h3><p>Сет-подготовка к петербургскому «Коллапсу».</p><a class="btn" href="https://t.me/vinfection/852">Слушать</a></div>
+<div class="card"><div class="date">PODCAST</div><h3>Darkstep · Implantant #82</h3><p>Тёмный darkstep в формате подкаста.</p><a class="btn" href="https://t.me/vinfection/858">Слушать</a></div>
+</div>
+</section>
+
+<section class="pg" id="about">
+<h1>О нас</h1>
+<p class="lead">VIRUS INFECTION — индустриальная промо-группа из Санкт-Петербурга. Лидер проекта — Dr.Faust, диджей с 18-летним сценическим стажем. Мы делаем собственные вечеринки и вписываемся в проекты друзей по сцене: от петербургских баров до московских клубов.</p>
+<h2>Друзья и партнёры</h2>
+<span class="tag">RAVERHEAD</span><span class="tag">DATAMOSH</span><span class="tag">Breakcore Family</span><span class="tag">Amenime</span><span class="tag">Ритмы</span><span class="tag">Collapse</span><span class="tag">Noise Fest</span>
+<h2>Контакты</h2>
+<a class="btn" href="https://t.me/vinfection">Telegram</a><a class="btn hot" href="https://vk.com/club15128735">VK</a><a class="btn" href="https://t.me/vinfectionchat">Чат</a>
+</section>
+
+</main>
+<footer>© VIRUS INFECTION · заражение неизбежно · 18+</footer>
+<script>
+(function(){
+var pages=["home","events","archive","music","about"];
+function go(){var h=(location.hash||"#home").slice(1);if(pages.indexOf(h)<0)h="home";
+pages.forEach(function(p){document.getElementById(p).classList.toggle("on",p===h)});
+document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
+window.scrollTo(0,0);}
+window.addEventListener("hashchange",go);go();
+var r=document.documentElement;
+document.getElementById("th").onclick=function(){
+var dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&!matchMedia("(prefers-color-scheme:light)").matches);
+r.setAttribute("data-theme",dark?"light":"dark");};
+})();
+</script>
+</body>
+</html>
